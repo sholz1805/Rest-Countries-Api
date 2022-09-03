@@ -1,0 +1,40 @@
+.header{
+  background-color: var(--element-bg);
+}
+
+.container{
+  width:100vw;
+  margin :0 auto;
+}
+
+.header .container{
+  display:flex;
+  justify-content: space-between;
+  padding:20px;
+}
+.header span{
+  cursor: pointer;
+  display:flex;
+  margin-top:3px;
+  border-radius: 8px;
+  padding:12px 20px;
+  place-items: center;
+  text-transform: capitalize;
+  font-weight: var(--font-medium);
+  transition: background-color 1s ease;
+}
+.header span:hover{
+  background-color: var(--main-bg);
+}
+.header i{
+  font-size:1.3rem;
+  margin-right:10px
+}
+
+
+@media only screen and (max-width: 768px) {
+  /* .container{width:80%;}
+  .header h1{font-size: medium;margin-top:10px;}
+  .header span{margin-top:0}
+  */
+}

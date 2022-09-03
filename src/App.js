@@ -1,8 +1,12 @@
+import './App.css';
+import TopBar from './components/topBar/TopBar'
+
 
 function App() {
   return (
     <div className="App">
-      <div>Rest Countries Api</div>
+        <TopBar/>
+        
     </div>
   );
 }
