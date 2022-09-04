@@ -2,7 +2,7 @@
 import { useState } from "react";
 import './TopBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-  import { faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faMoon } from '@fortawesome/free-solid-svg-icons'
 
 
 const TopBar = () => {   
@@ -23,7 +23,7 @@ const TopBar = () => {
 
 
     return ( 
-        <div className="header">
+        <div className="topbar">
             <div className="container">
                 <h1>Where in the world?</h1>
                 <span onClick={handleSwitcher}><FontAwesomeIcon icon={faMoon}/>Dark mode</span>

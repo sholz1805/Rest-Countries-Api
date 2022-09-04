@@ -1,0 +1,57 @@
+.container{
+    padding: 0 2% ;
+}
+
+form{
+    display:flex;
+    justify-content: space-between;
+    margin-top:50px;
+  }
+  
+  
+  select,input{
+    background-color: var(--element-bg);
+    color:var(--txt);
+    border:none;
+    border-radius: 5px;
+    box-shadow: 2px -2px 4px var(--shadow),
+                -2px 2px 4px var(--shadow);
+  }
+  
+  select:focus,
+  input:focus{
+    outline:none;
+  }
+  
+  .inputField{
+    width:35%;
+  }
+  
+  .inputField i {
+    margin-left:-315px;
+    font-size: large;
+  }
+  input{
+    width:80%;
+    padding-left:50px;
+    height: 38px;
+  }
+  select{
+    font-size: large;
+    width:160px;
+    padding:0 10px;
+    cursor:pointer;
+  }
+  
+
+
+  @media only screen and (max-width: 768px) {
+
+    form{
+        padding-left: 3%;
+
+    }
+    input{
+        width: 90vw;
+    }
+  }

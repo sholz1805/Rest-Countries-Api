@@ -8,7 +8,14 @@
   --font-family:"Nunito Sans";
 }
 
-*{box-sizing: border-box;margin:0;padding:0}
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  font-family:"Nunito Sans";
+}
+
+
 .light{
   --element-bg : hsl(0, 0%, 100%);
   --main-bg :  hsl(0, 2%, 91%);
@@ -33,50 +40,27 @@ body{
   font-size: var(--font-size-homepage) ;
 }
 
-h1{font-weight: var(--font-bold);}
-h2,h3{font-weight: var(--font-medium);}
-a{text-decoration: none;}
-.x{display:none}
-
-
-
-.listItem{background-color: var(--element-bg);}
-
-
-form{
-  display:flex;
-  justify-content: space-between;
-  margin-top:50px;
+h1{
+  font-weight: var(--font-bold);
 }
-select,input{
+
+h2,h3{
+  font-weight: var(--font-medium);
+}
+
+a{
+  text-decoration: none;
+}
+
+.x{
+  display:none;
+}
+
+
+.listItem{
   background-color: var(--element-bg);
-  color:var(--txt);
-  border:none;
-  border-radius: 5px;
-  box-shadow: 2px -2px 4px var(--shadow),
-              -2px 2px 4px var(--shadow);
 }
-select:focus,input:focus{
-  outline:none;
-}
-.inputField{
-  width:35%;
-}
-.inputField i {
-  margin-left:-308px;
-  font-size: large;
-}
-input{
-  width:80%;
-  padding-left:50px;
-  height: 38px;
-}
-select{
-  font-size: large;
-  width:160px;
-  padding:0 10px;
-  cursor:pointer;
-}
+
 
 
 .back{
