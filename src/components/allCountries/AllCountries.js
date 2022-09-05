@@ -1,71 +1,65 @@
-import React from 'react'
+import useFetch from "../UseFetch";
+import { useState, useEffect, createContext, useContext } from "react";
+import {Link} from 'react-scroll'
 import './AllCountries.css'
-import {useState} from 'react'
-import useFetch from '../UseFetch'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
-
-const AllCountries = () => {
-
-  const [inputField , setInputField ] = useState(undefined);
-  const [search,setSearch] = useState(undefined);
-  const [searchFilter,setSearchFilter] = useState("All");
-  const {data} = useFetch("https://restcountries.com/v2/all")
-  const handleSubmit = (e) => {
-      e.preventDefault();
-      setSearch(inputField);
-  }
-  const handleSelect = (e) => {
-    setSearchFilter(e.target.value)
-    setSearch(undefined);
-    setInputField('');
-  }
-  const getCountryName = (code) => {
-    let countryName;
-    const country = data.filter((element)=>{
-      return element.alpha3Code === code;
-    })  
-    countryName = country[0].name
-    return countryName;
-  }
-  const numberWithCommas = ( number => {
-    return number
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g,",");
-  })
 
 
-  return (
-    <div>
-        <div className="container">
-          <form onSubmit={handleSubmit}>
-              <div className="inputField">
-                      
-                      <input 
-                        type="search"
-                        placeholder = "Search for a country..."
-                        value={inputField}
-                        onChange={(e)=>{
-                          setInputField(e.target.value)
-                          setSearch(e.target.value)
-                          }
-                        }
-                      />
-                      <i><FontAwesomeIcon icon={faSearch}/></i>
-              </div>
-                <select id="region" name="region" onChange={handleSelect}>
-                      <option value="All" defaultValue>All</option>
-                      <option value="Africa">Africa</option>
-                      <option value="Americas">America</option>
-                      <option value="Asia">Asia</option>
-                      <option value="Europe">Europe</option>
-                      <option value="Oceania">Oceania</option>
-                </select>
-          </form>
-                    
+// const UserContext = createContext();
+let url;
+const Countries = ({input}) => {
+    url = input ? `https://restcountries.com/v2/name/${input}` : "https://restcountries.com/v2/all"
+    
+    const {data,loading} = useFetch(url);
+    const [countries,setCountries] = useState([]);
+    const [searchFilter, setSearchFilter] = useState("All");
+    
+ 
+    useEffect(()=>{
+        if(input){
+           setCountries(data)
+        }
+
+        else{
+              console.log(countries)
+            if(searchFilter === "All"){
+              console.log(data)
+               setCountries(data)
+            }
+            else{
+
+                setCountries(data.filter((country)=>{
+                    return country.region === searchFilter;
+                }))
+
+            }
+
+        }
+
+    },[input,data,searchFilter])
+
+    return ( 
+        <div className="countriesList">
+            <div className="country-container">
+                {loading && <h1 className="loading">Loading ...</h1>}
+                {countries.length ? countries.map(country => {
+                   console.log(country.name)
+                        const {flag,name,population,region,capital} = country;
+                        return(
+                            <Link to={`/${name}`} className="listItem" key={name}>
+                                <img src={flag} alt={name}/>
+                                <div className="info">
+                                    <h2>{name}</h2>
+                                    <div><h3>population:</h3><span>{(population)}</span></div>
+                                    {region && <div><h3>region:</h3><span>{region}</span></div>}
+                                    {capital && <div><h3>capital:</h3><span>{capital}</span></div>}
+                                </div>
+                            </Link>
+                        )
+                    })
+                  : <h1 className={loading ? "x" : "loading"} style={{left:"35%"}}>No result for your search</h1>}
+            </div>
         </div>
-    </div>
-  )
+    );
 }
-
-export default AllCountries
+ 
+export default Countries;

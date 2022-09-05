@@ -10,7 +10,7 @@
 .topbar .container{
   display:flex;
   justify-content: space-between;
-  padding:30px;
+  padding:25px;
 }
 .topbar span{
   cursor: pointer;

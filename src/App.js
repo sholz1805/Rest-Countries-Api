@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TopBar from './components/topBar/TopBar'
+import SearchFilterBar from './components/searchFilterBar/SearchFilterBar';
 import AllCountries from './components/allCountries/AllCountries.js'
 
 
@@ -11,6 +12,7 @@ const App = () => {
 
     <div className="App">
           <TopBar />
+          <SearchFilterBar/>
           <AllCountries/>
               
 </div>

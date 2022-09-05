@@ -145,6 +145,7 @@ a{
   }
   .countriesList .container{
     grid-template-columns: repeat(1,auto);
+    font-size: small;
   }
   .country .container{
     flex-direction: column;
