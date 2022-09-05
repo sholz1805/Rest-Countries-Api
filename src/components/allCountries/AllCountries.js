@@ -1,5 +1,5 @@
 import useFetch from "../UseFetch";
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, useEffect} from "react";
 import {Link} from 'react-scroll'
 import './AllCountries.css'
 

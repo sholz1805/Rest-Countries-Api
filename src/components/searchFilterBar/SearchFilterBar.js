@@ -28,11 +28,11 @@ const SearchFilterBar = () => {
     countryName = country[0].name
     return countryName;
   }
-  const numberWithCommas = ( number => {
-    return number
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g,",");
-  })
+  // const numberWithCommas = ( number => {
+  //   return number
+  //           .toString()
+  //           .replace(/\B(?=(\d{3})+(?!\d))/g,",");
+  // })
 
 
   return (
